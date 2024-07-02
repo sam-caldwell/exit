@@ -30,7 +30,6 @@ called `Code` based on `uint8` for improved type safety.
 
 | Function or Group                             | Description                                                               | 
 |-----------------------------------------------|---------------------------------------------------------------------------| 
-| [`CheckError()`](./CheckError.go)             | A set of functions to check if an error state exists and terminate if so. |
 | [`On()`](./On.go)                             | A function to exit on a given condition being `true`.                     |
 | [`OnError()`](./OnError.go)                   | A function to exit on error condition.                                    |
 | [`PanicOn()`](./PanicOn.go)                   | A set of functions to panic on a given condition                          |
