@@ -3,7 +3,6 @@ package exit
 import (
 	"bytes"
 	"fmt"
-	"github.com/sam-caldwell/ansi/v2"
 	"os/exec"
 	"testing"
 )
@@ -87,19 +86,19 @@ func TestExit_On(t *testing.T) {
 				}
 				if !bytes.Equal(out, expectedAnsiResetCodes) {
 					for i := 0; i < len(out); i++ {
-						ansi.Printf("%03d ", i)
+						fmt.Printf("%03d ", i)
 					}
 					fmt.Println()
 					for i := 0; i < len(out); i++ {
-						ansi.Printf("%03d ", out[i])
+						fmt.Printf("%03d ", out[i])
 					}
 					fmt.Println()
 					for i := 0; i < len(expectedAnsiResetCodes); i++ {
-						if out[i] != expectedAnsiResetCodes[i] {
-							ansi.Red()
-						}
-						ansi.Printf("%03d ", expectedAnsiResetCodes[i])
-						ansi.Reset()
+						//if out[i] != expectedAnsiResetCodes[i] {
+						//	fmt.Red()
+						//}
+						fmt.Printf("%03d ", expectedAnsiResetCodes[i])
+						//ansi.Reset()
 					}
 					fmt.Println()
 					t.Fatal("output mismatch")
@@ -142,19 +141,19 @@ func TestExit_On(t *testing.T) {
 				}
 				if !bytes.Equal(out, expectedAnsiResetCodes) {
 					for i := 0; i < len(out); i++ {
-						ansi.Printf("%03d ", i)
+						fmt.Printf("%03d ", i)
 					}
 					fmt.Println()
 					for i := 0; i < len(out); i++ {
-						ansi.Printf("%03d ", out[i])
+						fmt.Printf("%03d ", out[i])
 					}
 					fmt.Println()
 					for i := 0; i < len(expectedAnsiResetCodes); i++ {
-						if out[i] != expectedAnsiResetCodes[i] {
-							ansi.Red()
-						}
-						ansi.Printf("%03d ", expectedAnsiResetCodes[i])
-						ansi.Reset()
+						//if out[i] != expectedAnsiResetCodes[i] {
+						//	ansi.Red()
+						//}
+						fmt.Printf("%03d ", expectedAnsiResetCodes[i])
+						//ansi.Reset()
 					}
 					fmt.Println()
 					t.Fatal("output mismatch")

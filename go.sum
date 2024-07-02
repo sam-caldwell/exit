@@ -1,6 +1,2 @@
 github.com/sam-caldwell/ansi/v2 v2.0.1 h1:hpunXkw1C12rIcxOLWALBRS6kJCTh9Z7JAgeWfMBCqk=
 github.com/sam-caldwell/ansi/v2 v2.0.1/go.mod h1:isetFSCe4kIGH6Y9nPvIwKa3DkQZK7ag9fUIuq9hGzU=
-github.com/sam-caldwell/errors/v2 v2.0.0 h1:hD2W5hX3Sb0hQda/qZG49S5c1G22KGA6QYzaoaoLBkc=
-github.com/sam-caldwell/errors/v2 v2.0.0/go.mod h1:xQkCEw9OjDTmbSiFdrNy1f4+z1YfU84pvARPvTlggaE=
-github.com/sam-caldwell/errors/v2 v2.0.1 h1:N4T3mrQFHGhvFBRP5TlQQZh3fuFr3fErTYSIsVAwMG8=
-github.com/sam-caldwell/errors/v2 v2.0.1/go.mod h1:xQkCEw9OjDTmbSiFdrNy1f4+z1YfU84pvARPvTlggaE=

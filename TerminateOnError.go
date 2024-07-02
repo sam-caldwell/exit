@@ -1,7 +1,7 @@
 package exit
 
 import (
-	"github.com/sam-caldwell/ansi/v2"
+	"fmt"
 )
 
 // TerminateOnError - If err is not nil, terminate with GeneralError.
@@ -20,7 +20,7 @@ func TerminateOnError(err error) {
 //	ANSI Color Codes.
 func TerminateOnErrorWithCode(err error, code Code) {
 	if err != nil {
-		ansi.Red().Println(err.Error()).Reset()
+		fmt.Println(err.Error())
 	}
 	terminate(code)
 }
