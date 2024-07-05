@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/sam-caldwell/exit/v2"
+	"github.com/sam-caldwell/exit"
 )
 
 // main - example program for testing/demonstrating exit.On()

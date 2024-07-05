@@ -1,7 +1,7 @@
 package exit_test
 
 import (
-	"github.com/sam-caldwell/exit/v2"
+	"github.com/sam-caldwell/exit"
 	"testing"
 )
 
