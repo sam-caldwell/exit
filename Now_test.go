@@ -8,7 +8,7 @@ import (
 )
 
 func TestExit_Now(t *testing.T) {
-	expectedAnsiResetCodes := []byte{27, 91, 48, 109}
+	var expected []byte
 
 	t.Run("test happy path (exit code 0)", func(t *testing.T) {
 		actual, err := exec.Command("go", "run",
@@ -16,10 +16,10 @@ func TestExit_Now(t *testing.T) {
 		if err != nil {
 			t.Fatalf("Failed to run test program: %v", err)
 		}
-		if !bytes.Equal(actual, expectedAnsiResetCodes) {
+		if !bytes.Equal(actual, expected) {
 			t.Fatalf("exit code should return no output.\n"+
 				"     got: '%s'\n"+
-				"expected: '%v'\n", actual, expectedAnsiResetCodes)
+				"expected: '%v'\n", actual, expected)
 		}
 	})
 
@@ -32,7 +32,7 @@ func TestExit_Now(t *testing.T) {
 			if err != nil && err.Error() != "exit status 1" {
 				t.Fatalf("test failed: %v", err)
 			}
-			if !bytes.Equal(out, expectedAnsiResetCodes) {
+			if !bytes.Equal(out, expected) {
 				t.Fatalf("output mismatch\n"+
 					"out: (%s) %v", string(out), out)
 			}

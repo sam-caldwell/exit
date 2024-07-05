@@ -10,6 +10,7 @@ import (
 func TestExit_On(t *testing.T) {
 
 	t.Run("test happy path (exit code 0) but lhs != rhs", func(t *testing.T) {
+		var expected []byte
 		cmd := "go"
 		args := []string{
 			"run", "examples/exit_on.go", "-lhs", "a", "-rhs", "b",
@@ -19,15 +20,16 @@ func TestExit_On(t *testing.T) {
 		if err != nil {
 			t.Fatalf("Failed to run test program: %v", err)
 		}
-		expectedAnsiResetCodes := []byte{27, 91, 48, 109, 111, 107, 10}
-		if !bytes.Equal(actual, expectedAnsiResetCodes) {
+		expected = []byte{111, 107, 10}
+		if !bytes.Equal(actual, expected) {
 			t.Fatalf("exit code should return no output.\n"+
 				"     got: '%v'\n"+
-				"expected: '%v'\n", actual, expectedAnsiResetCodes)
+				"expected: '%v'\n", actual, expected)
 		}
 	})
 
 	t.Run("test happy path (exit code 0) but lhs == rhs", func(t *testing.T) {
+		var expected []byte
 		cmd := "go"
 		args := []string{
 			"run", "examples/exit_on.go", "-lhs", "a", "-rhs", "a",
@@ -37,11 +39,10 @@ func TestExit_On(t *testing.T) {
 		if err != nil {
 			t.Fatalf("Failed to run test program: %v", err)
 		}
-		expectedAnsiResetCodes := []byte{27, 91, 48, 109, 27, 91, 48, 109}
-		if !bytes.Equal(actual, expectedAnsiResetCodes) {
+		if !bytes.Equal(actual, expected) {
 			t.Fatalf("exit code should return no output.\n"+
 				"     got: '%v'\n"+
-				"expected: '%v'\n", actual, expectedAnsiResetCodes)
+				"expected: '%v'\n", actual, expected)
 		}
 	})
 
@@ -61,7 +62,6 @@ func TestExit_On(t *testing.T) {
 				}
 
 				expectedAnsiResetCodes := append(append([]byte{
-					27, 91, 48, 109, 27, 91, 51, 49, 109, /*  0-8: header (not visible) */
 					69, 114, 114, 111, 114, 58, 32, /*        9-15: Error: */
 					108, 104, 115, 32, 40, 97, 41, /*         16-22: lhs (a) */
 					32, 33, 61, 32, /*                        23-26: != */
@@ -74,7 +74,7 @@ func TestExit_On(t *testing.T) {
 						117, 115, 97, 103, 101, 58, 32, /* usage: */
 						115, 104, 111, 117, 108, 100, 95, 110, 111, 116, 95, 97, 112, 112, 101, 97, 114, 10, 10,
 						85, 115, 97, 103, 101, 58, 10, 115, 104, 111, 117, 108, 100, 95, 110, 111, 116, 95, 97,
-						112, 112, 101, 97, 114, 10, 27, 91, 48, 109}...)
+						112, 112, 101, 97, 114, 10}...)
 				if len(out) != len(expectedAnsiResetCodes) {
 					t.Fatalf("output length mismatch\n"+
 						"out:      s: %s\n"+
@@ -118,7 +118,6 @@ func TestExit_On(t *testing.T) {
 				}
 
 				expectedAnsiResetCodes := append(append([]byte{
-					27, 91, 48, 109, 27, 91, 51, 49, 109, /*  0-8: header (not visible) */
 					69, 114, 114, 111, 114, 58, 32, /*        9-15: Error: */
 					108, 104, 115, 32, 40, 97, 41, /*         16-22: lhs (a) */
 					32, 33, 61, 32, /*                        23-26: != */
@@ -129,7 +128,7 @@ func TestExit_On(t *testing.T) {
 					[]byte(exitCode)...),
 					[]byte{41, 32, /*               48-52: (<n>) */
 						117, 115, 97, 103, 101, 58, 32, /* usage: */
-						27, 91, 48, 109}...)
+					}...)
 				if len(out) != len(expectedAnsiResetCodes) {
 					t.Fatalf("output length mismatch\n"+
 						"out:      s: %s\n"+
