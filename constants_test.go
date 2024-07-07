@@ -16,7 +16,7 @@ func TestExitCodes(t *testing.T) {
 		LockCreateFailed,
 		InvalidCommand,
 		InvalidInput,
-		InvalidResult
+		InvalidResult,
 		MissingArg,
 		MissingColor,
 		NotFound,
