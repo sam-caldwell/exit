@@ -67,3 +67,11 @@ rust/**/target
 *.o
 
 logs.txt
+
+CMakeFiles/
+CMakeCache.txt
+cmake-build-debug/
+Makefile
+cmake_install.cmake
+CMakeLists.txt
+CTestTestfile.cmake
