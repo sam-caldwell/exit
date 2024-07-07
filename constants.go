@@ -14,40 +14,46 @@ const (
 	Success Code = 0
 
 	// GeneralError - (Linux/macOS/BSD) - General undefined error.
-	GeneralError Code = 1
+	GeneralError Code = 10
 
 	// ConnectionFailed - (Linux/macOS/BSD) - A connection failed.
-	ConnectionFailed Code = 10
+	ConnectionFailed Code = 20
+
 	// ConnectionTimeout - (Linux/macOS/BSD) - A connection timed out.
-	ConnectionTimeout Code = 11
+	ConnectionTimeout Code = 25
 
 	// FailedToFreeLock - (Linux/macOS/BSD) - A lock failed to free.
-	FailedToFreeLock Code = 20
-
-	// FileNotFound - (Linux/macOS/BSD) - A file was not found.
-	FileNotFound Code = 21
+	FailedToFreeLock Code = 30
 
 	// FailedToOpenFile - (Linux/macOS/BSD) - A file failed to be opened.
-	FailedToOpenFile Code = 22
+	FailedToOpenFile Code = 35
+
+	// FileNotFound - (Linux/macOS/BSD) - A file was not found.
+	FileNotFound Code = 40
 
 	// LockCreateFailed - (Linux/macOS/BSD) - A required lock could not be created.
-	LockCreateFailed Code = 30
+	LockCreateFailed Code = 50
 
 	// InvalidCommand - (Linux/macOS/BSD) - An invalid command was encountered.
-	InvalidCommand Code = 40
+	InvalidCommand Code = 60
 
 	// InvalidInput - (Linux/macOS/BSD) - Invalid input encountered.
-	InvalidInput Code = 3
+	InvalidInput Code = 70
+
+	InvalidResult = 80
 
 	// MissingArg - (Linux/macOS/BSD) - The program is missing an argument.
-	MissingArg Code = 10
+	MissingArg Code = 90
 
 	// MissingColor - (Linux/macOS/BSD) - The program is missing a color input.
-	MissingColor Code = 13
+	MissingColor Code = 100
 
 	// NotFound (Linux/macOS/BSD) - A required entity is not found.
-	NotFound = 20
+	NotFound = 110
+
+	// ParseError - A parse operation failed
+	ParseError = 120
 
 	// UnknownCommand - The given command is unknown.
-	UnknownCommand = 11
+	UnknownCommand = 130
 )

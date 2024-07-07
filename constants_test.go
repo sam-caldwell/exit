@@ -16,9 +16,11 @@ func TestExitCodes(t *testing.T) {
 		LockCreateFailed,
 		InvalidCommand,
 		InvalidInput,
+		InvalidResult
 		MissingArg,
 		MissingColor,
 		NotFound,
+		ParseError,
 		UnknownCommand,
 	}
 	t.Run("test values are in range", func(t *testing.T) {
