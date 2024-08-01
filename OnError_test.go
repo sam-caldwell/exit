@@ -8,7 +8,7 @@ import (
 )
 
 func TestExit_OnError(t *testing.T) {
-	const testBinary = "examples/onErrror/main.go"
+	const testBinary = "examples/onError/main.go"
 
 	t.Run("test happy path (exit code 0)", func(t *testing.T) {
 		var expected []byte
