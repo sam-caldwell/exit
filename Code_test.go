@@ -1,8 +1,9 @@
 package exit_test
 
 import (
-	"github.com/sam-caldwell/exit"
 	"testing"
+
+	"github.com/sam-caldwell/exit"
 )
 
 func TestExit_Code(t *testing.T) {
@@ -10,6 +11,7 @@ func TestExit_Code(t *testing.T) {
 		var c exit.Code
 		for i := -512; i < 512; i++ {
 			c = exit.Code(i)
+			// nolint:staticcheck
 			if c < 0 || c > 255 {
 				t.Fatalf("c is out of bounds")
 			}
