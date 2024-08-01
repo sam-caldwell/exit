@@ -13,7 +13,7 @@ import (
 func On(condition bool, code Code, err error, usage string) {
 
 	const (
-		errMessage = "Error: %s%s"
+		errMessage = "Error: %s%s\n"
 		errUsage   = "\n\nUsage:\n%s\n"
 	)
 
