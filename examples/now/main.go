@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+
 	"github.com/sam-caldwell/exit"
 )
 

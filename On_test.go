@@ -9,11 +9,12 @@ import (
 
 func TestExit_On(t *testing.T) {
 
+	const testBinary = "examples/on/main.go"
 	t.Run("test happy path (exit code 0) but lhs != rhs", func(t *testing.T) {
 		var expected []byte
 		cmd := "go"
 		args := []string{
-			"run", "examples/exit_on.go", "-lhs", "a", "-rhs", "b",
+			"run", testBinary, "-lhs", "a", "-rhs", "b",
 			"-code", "0", "-usage", "should_not_appear", "-show_error",
 		}
 		actual, err := exec.Command(cmd, args...).Output()
@@ -32,7 +33,7 @@ func TestExit_On(t *testing.T) {
 		var expected []byte
 		cmd := "go"
 		args := []string{
-			"run", "examples/exit_on.go", "-lhs", "a", "-rhs", "a",
+			"run", testBinary, "-lhs", "a", "-rhs", "a",
 			"-code", "0", "-usage", "should_not_appear", "-show_error",
 		}
 		actual, err := exec.Command(cmd, args...).Output()
@@ -52,7 +53,7 @@ func TestExit_On(t *testing.T) {
 				exitCode := fmt.Sprintf("%d", n)
 				cmd := "go"
 				args := []string{
-					"run", "examples/exit_on.go", "-lhs", "a", "-rhs", "a",
+					"run", testBinary, "-lhs", "a", "-rhs", "a",
 					"-code", exitCode, "-usage", "should_not_appear", "-show_error",
 				}
 				out, err := exec.Command(cmd, args...).Output()
@@ -108,7 +109,7 @@ func TestExit_On(t *testing.T) {
 				exitCode := fmt.Sprintf("%d", n)
 				cmd := "go"
 				args := []string{
-					"run", "examples/exit_on.go", "-lhs", "a", "-rhs", "a",
+					"run", testBinary, "-lhs", "a", "-rhs", "a",
 					"-code", exitCode, "-show_error",
 				}
 				out, err := exec.Command(cmd, args...).Output()

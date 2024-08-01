@@ -8,11 +8,11 @@ import (
 )
 
 func TestExit_Now(t *testing.T) {
+	const testBinary = "examples/now/main.go"
 	var expected []byte
 
 	t.Run("test happy path (exit code 0)", func(t *testing.T) {
-		actual, err := exec.Command("go", "run",
-			"examples/exit_now.go", "-exit_code", "0").Output()
+		actual, err := exec.Command("go", "run", testBinary, "-exit_code", "0").Output()
 		if err != nil {
 			t.Fatalf("Failed to run test program: %v", err)
 		}
@@ -27,7 +27,7 @@ func TestExit_Now(t *testing.T) {
 		n := Code(i)
 		t.Run(fmt.Sprintf("Test exit.Now(%d)", n), func(t *testing.T) {
 			exitCode := fmt.Sprintf("%d", n)
-			out, err := exec.Command("go", "run", "examples/exit_now.go", "-exit_code", exitCode).Output()
+			out, err := exec.Command("go", "run", testBinary, "-exit_code", exitCode).Output()
 
 			if err != nil && err.Error() != "exit status 1" {
 				t.Fatalf("test failed: %v", err)

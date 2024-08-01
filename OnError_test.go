@@ -8,12 +8,13 @@ import (
 )
 
 func TestExit_OnError(t *testing.T) {
+	const testBinary = "examples/onErrror/main.go"
 
 	t.Run("test happy path (exit code 0)", func(t *testing.T) {
 		var expected []byte
 		cmd := "go"
 		args := []string{
-			"run", "examples/exit_onError.go", "-show_error", "-code", "0",
+			"run", testBinary, "-show_error", "-code", "0",
 		}
 		actual, err := exec.Command(cmd, args...).Output()
 		if err != nil {
@@ -30,7 +31,7 @@ func TestExit_OnError(t *testing.T) {
 		code := 1
 		cmd := "go"
 		args := []string{
-			"run", "examples/exit_onError.go", "-show_error", "-code", fmt.Sprintf("%d", code),
+			"run", testBinary, "-show_error", "-code", fmt.Sprintf("%d", code),
 		}
 		actual, err := exec.Command(cmd, args...).Output()
 		if code == 0 && err != nil {
@@ -54,7 +55,7 @@ func TestExit_OnError(t *testing.T) {
 		code := 1
 		cmd := "go"
 		args := []string{
-			"run", "examples/exit_onError.go", "-show_error", "-code", fmt.Sprintf("%d", code),
+			"run", testBinary, "-show_error", "-code", fmt.Sprintf("%d", code),
 			"-usage", "test_usage",
 		}
 		actual, err := exec.Command(cmd, args...).Output()
