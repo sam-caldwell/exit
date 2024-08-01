@@ -75,7 +75,7 @@ func TestExit_On(t *testing.T) {
 						117, 115, 97, 103, 101, 58, 32, /* usage: */
 						115, 104, 111, 117, 108, 100, 95, 110, 111, 116, 95, 97, 112, 112, 101, 97, 114, 10, 10,
 						85, 115, 97, 103, 101, 58, 10, 115, 104, 111, 117, 108, 100, 95, 110, 111, 116, 95, 97,
-						112, 112, 101, 97, 114, 10}...)
+						112, 112, 101, 97, 114, 10, 10}...)
 				if len(out) != len(expectedAnsiResetCodes) {
 					t.Fatalf("output length mismatch\n"+
 						"out:      s: %s\n"+
@@ -128,7 +128,7 @@ func TestExit_On(t *testing.T) {
 					40},
 					[]byte(exitCode)...),
 					[]byte{41, 32, /*               48-52: (<n>) */
-						117, 115, 97, 103, 101, 58, 32, /* usage: */
+						117, 115, 97, 103, 101, 58, 32, 10, /* usage: */
 					}...)
 				if len(out) != len(expectedAnsiResetCodes) {
 					t.Fatalf("output length mismatch\n"+
